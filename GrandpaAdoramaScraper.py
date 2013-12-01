@@ -5,6 +5,7 @@ global ResultList
 
 ResultList = []
 
+
 def ArticleCheck(WD):
     Page = url.urlopen('http://www.adorama.com/catalog.tpl?op=article_' + WD)
     RawP = Page.read()
@@ -12,8 +13,6 @@ def ArticleCheck(WD):
     if IsJim > -1:
         GoodURL = 'http://www.adorama.com/catalog.tpl?op=article_' + WD
         ResultList.append(GoodURL)
-
-
 
 Item = 0
 
@@ -25,12 +24,12 @@ for i in range(1, 13):
         sj = str(j)
         M = sj.zfill(2)
 
-        for k in range(4, 9):
+        for k in range(2, 11):
             sk = str(k)
             L = sk.zfill(2)
             pDate = F + M + L
             Item += 1
-            print "Checking Combintation " + str(Item)
+            print "Checking Combination " + str(Item)
             ArticleCheck(pDate)
 print "Done"
 print
